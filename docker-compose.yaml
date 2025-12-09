@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  subdomain-updater1:
+    build: .
+    environment:
+      OVH_HOST: "${OVH_HOST}"
+      OVH_USER: "${OVH_USER}"
+      OVH_PASS: "${OVH_PASS}"
+      CHECK_INTERVAL_SECONDS: "${CHECK_INTERVAL_SECONDS}"
+      MIN_SECONDS_BETWEEN_UPDATES: "${MIN_SECONDS_BETWEEN_UPDATES}"
+      FORCE_UPDATE_HOURS: "${FORCE_UPDATE_HOURS}"
+      MAX_RETRIES_PER_UPDATE: "${MAX_RETRIES_PER_UPDATE}"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
